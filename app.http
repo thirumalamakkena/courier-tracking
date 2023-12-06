@@ -1,0 +1,35 @@
+POST http://localhost:3000/login/
+Content-Type: application/json
+
+{
+    "username": "thirumala",
+    "password": "abc123"
+}
+
+###
+
+
+POST http://localhost:3000/addPackage/
+Content-Type: application/json
+
+{
+    "courierId": 61504,
+    "courierName": "Delivery",
+    "fromAddress": "Vijayawada",
+    "toAddress":"Badrachalam"
+}
+
+###
+
+
+POST http://localhost:3000/updatePackage/
+Content-Type: application/json
+
+{
+    "courierId": 61504,
+    "trackingId": 1,
+    "location": "Guntur",
+    "status":"arrived"
+}
+
+
