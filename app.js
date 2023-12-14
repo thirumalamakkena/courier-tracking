@@ -1,5 +1,4 @@
 const express = require("express");
-const format = require("date-fns/format");
 
 const app = express();
 app.use(express.json());
@@ -24,8 +23,8 @@ const initializeDBAndServer = async () => {
       filename: dbPath,
       driver: sqlite3.Database,
     });
-    app.listen(3000, async () => {
-      console.log("Server is running at http:/localhost:3000/");
+    app.listen(4000, async () => {
+      console.log("Server is running at http:/localhost:4000/");
     });
   } catch (e) {
     console.log(e.message);
@@ -153,4 +152,15 @@ app.post("/updatePackage", async (request, response) => {
   const createCourier = await db.run(updateCourierQuery);
   console.log(createCourier);
   response.send("history Successfully Added");
+});
+
+app.get("/get", async (request, response) => {
+  const query = `
+   SELECT 
+        *
+    FROM 
+       users;
+   `;
+  const obj = await db.all(query);
+  response.send(obj);
 });
