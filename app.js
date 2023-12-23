@@ -9,7 +9,7 @@ const jwt = require("jsonwebtoken");
 const { open } = require("sqlite");
 const sqlite3 = require("sqlite3");
 const cors = require("cors");
-
+const port = process.env.PORT || 9001;
 app.use(cors());
 
 const path = require("path");
@@ -23,8 +23,8 @@ const initializeDBAndServer = async () => {
       filename: dbPath,
       driver: sqlite3.Database,
     });
-    app.listen(4000, async () => {
-      console.log("Server is running at http:/localhost:4000/");
+    app.listen(port, async () => {
+      console.log("Server is running at http:/localhost:9001/");
     });
   } catch (e) {
     console.log(e.message);
